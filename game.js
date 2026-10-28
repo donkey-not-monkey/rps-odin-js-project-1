@@ -11,39 +11,42 @@ function getHumanChoice() {
 let humanScore = 0;
 let computerScore = 0;
 
+const gameboard = document.querySelector('#gameboard');
+
 const playRound = function(humanChoice, computerChoice) {
   // convention => paper: 0, scissors: 1, rock: 2
   if (humanChoice === 'scissors') {
     if (computerChoice === 1) {
-      console.log('It is a tie. Both chose scissors')
+     gameboard.textContent = ('It is a tie. Both chose scissors')
+
     } else if (computerChoice === 0) {
-      console.log(`You win! ${humanChoice} beats paper.`)
       humanScore += 1;
+      gameboard.textContent = (`You win! ${humanChoice} beats paper.`)
     } else if (computerChoice === 2) {
-      console.log(`You lose! Scissors loses to rock`)
+      gameboard.textContent = (`You lose! Scissors loses to rock`)
       computerScore += 1;
     }
   }
   else if (humanChoice === 'paper') {
     if (computerChoice === 0) {
-      console.log('It is a tie. Both chose paper')
+     gameboard.textContent = ('It is a tie. Both chose paper')
     } else if (computerChoice === 1) {
-      console.log('You lose! Paper loses to scissors')
       computerScore += 1;
+      gameboard.textContent = ('You lose! Paper loses to scissors')
     } else if (computerChoice === 2) {
-      console.log('You win! Paper beats rock')
       humanScore += 1;
+      gameboard.textContent = ('You win! Paper beats rock')
     }
   }
   else if (humanChoice === 'rock') {
     if (computerChoice === 0) {
-      console.log('You lose! Rock loses to paper')
       computerScore += 1;
+      gameboard.textContent = ('You lose! Rock loses to paper')
     } else if (computerChoice === 1) {
-      console.log('You win! Rock beats scissors')
       humanScore += 1;
+      gameboard.textContent = ('You win! Rock beats scissors')
     } else if (computerChoice === 2) {
-      console.log('It is a tie. Both chose rock')
+      gameboard.textContent = ('It is a tie. Both chose rock')
     }
   }
 }
