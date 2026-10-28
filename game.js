@@ -60,6 +60,10 @@ allThreeBtns.forEach((oneBtn) => {
   oneBtn.addEventListener('click', function(e) {
     const userChoice = e.target.textContent.toLowerCase();
     playRound(userChoice, getComputerChoice())
+
+    if (humanScore === 5 || computerScore === 5) {
+      gameboard.textContent = `The ${humanScore > computerScore ? 'player' : 'computer'} wins`
+    }
   })
 })
 
