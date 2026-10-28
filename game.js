@@ -62,7 +62,16 @@ allThreeBtns.forEach((oneBtn) => {
     playRound(userChoice, getComputerChoice())
 
     if (humanScore === 5 || computerScore === 5) {
-      gameboard.textContent = `The ${humanScore > computerScore ? 'player' : 'computer'} wins`
+      gameboard.textContent = `The ${humanScore > computerScore ? 'player' : 'computer'} wins!`
+      const newGameBtn = document.createElement('button');
+      newGameBtn.textContent = 'New game'
+      document.body.appendChild(newGameBtn)
+      newGameBtn.addEventListener('click', () => {
+        humanScore = 0;
+        computerScore = 0;
+        gameboard.textContent = "Let's play!"
+        document.body.removeChild(newGameBtn)
+      })
     }
   })
 })
