@@ -48,17 +48,30 @@ const playRound = function(humanChoice, computerChoice) {
   }
 }
 
-const playGame = function() {
-  for (let i=0; i<5; i++) {
-    playRound(getHumanChoice(), getComputerChoice())
-    console.log(`Current score - Player: ${humanScore} Computer: ${computerScore}`)
-  }
-  if (humanScore > computerScore) {
-    console.log('You won the game!')
-  } else if (humanScore < computerScore){
-    console.log('You lost the game')
-  } else {
-    console.log('The game ends with a tie.')
-  }
-}
-playGame()
+const rock = document.querySelector('#rock');
+const paper = document.getElementById('paper');
+const scissors = document.querySelector('#scissors');
+const allThreeBtns = document.querySelectorAll('.rps-selection');
+
+allThreeBtns.forEach((oneBtn) => {
+  oneBtn.addEventListener('click', function(e) {
+    const userChoice = e.target.textContent.toLowerCase();
+    playRound(userChoice, getComputerChoice())
+  })
+})
+
+
+
+// const playGame = function() {
+//   for (let i=0; i<5; i++) {
+//     playRound(getHumanChoice(), getComputerChoice())
+//     console.log(`Current score - Player: ${humanScore} Computer: ${computerScore}`)
+//   }
+//   if (humanScore > computerScore) {
+//     console.log('You won the game!')
+//   } else if (humanScore < computerScore){
+//     console.log('You lost the game')
+//   } else {
+//     console.log('The game ends with a tie.')
+//   }
+// }
